@@ -1,0 +1,35 @@
+ setTimeout(() => {
+      $(document).ready(function () {
+
+        var max_elem = 11;
+        var itemstop = $('ul.homepageonlymenu > li');
+        if (itemstop.length > max_elem) {
+          $('ul.homepageonlymenu').append('<li class="nav-item"><a class="dropdown-item" href="javascript:void(0)"> <div class="more-wrap"><span class="more-view"><img  alt="icon" class="webicons img-fluid me-2" src="../../assets/images/icons/plus.png"> More <i class="fa fa-angle-down float-end"></i></span></div></a></li>');
+        }
+        $('ul.homepageonlymenu .more-wrap').on("click", function () {
+          if ($(this).hasClass('active')) {
+            itemstop.each(function (i) {
+              if (i >= max_elem) {
+                $(this).slideUp(600);
+              }
+            });
+            $(this).removeClass('active');
+            //$(this).children('div').css('display', 'block');
+            $('.more-wrap').html('<span class="more-view"><img  alt="icon" class="webicons img-fluid me-2" src="../../assets/images/icons/plus.png"> More <i class="fa fa-angle-down float-end"></i></span>');
+          } else {
+            itemstop.each(function (i) {
+              if (i >= max_elem) {
+                $(this).slideDown(600);
+              }
+            });
+            $(this).addClass('active');
+            $('.more-wrap').html('<span class="more-view"><img  alt="icon" class="webicons img-fluid me-2" src="../../assets/images/icons/minus.png"> Less <i class="fa fa-angle-up float-end"></i></span>');
+          }
+        });
+        itemstop.each(function (i) {
+          if (i >= max_elem) {
+            $(this).css('display', 'none');
+          }
+        });
+      });
+    }, 2000)
