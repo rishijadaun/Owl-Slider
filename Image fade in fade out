@@ -1,0 +1,63 @@
+setTimeout(() => {
+      $(document).ready(function () {
+        var pic1 = $("#slider-banner-bottom img:first");
+        var images = 
+        [
+        "http://localhost:4200/assets/images/banner/carditem1.jpg",
+        "http://localhost:4200/assets/images/banner/carditem2.jpg",
+        "http://localhost:4200/assets/images/banner/img001.png",
+        "http://localhost:4200/assets/images/banner/img003.png",
+        ];
+        // var pic2 = $(".bannerrightslider2 img:first");
+        // var images2 = this.bottomRigthImgs;
+        // [
+        // "http://localhost:4200/assets/images/banner/carditem1.jpg",
+        // "http://localhost:4200/assets/images/banner/carditem2.jpg",
+        // "http://localhost:4200/assets/images/banner/img001.png",
+        // "http://localhost:4200/assets/images/banner/img003.png",
+        // ];
+        var i = 0;
+        setInterval(function () {
+          // Returns 0, 1, 2, 3, 0, 1, 2, ....
+          i = (i + 1) % images.length;
+          // --------for top rigth---------------
+          pic1.fadeOut(200, function () {
+            $(this).attr("src", images[i]);
+            $(this).fadeIn(1000);
+          });
+          // --------for bottom rigth---------------
+          // i = (i + 1) % images2.length;
+          // pic2.fadeOut(250, function () {
+          //   $(this).attr("src", images2[i]);
+          //   $(this).fadeIn(2000);
+          // });
+        }, 5000);
+      });
+    }, 1000)
+    
+    
+    
+    /////////////HTML///////////////////////////
+    
+    
+    
+    <div class="col-md-4 banner-right">
+                            <div class="bannerrightslider1">
+                                <div class="card shadow-none mb-2 text-center">
+                                    <a href="javascript:void(0)">
+                                        <img alt="alttext" class="img-fluid"
+                                            src="../../assets/images/banner/Loading_icon.gif">
+                                    </a>
+                                </div>
+                               
+                            </div>
+                            <div class="bannerrightslider2">
+                                <div class="card shadow-none mb-2 text-center">
+                                    <a href="javascript:void(0)">
+                                        <img alt="alttext" class="img-fluid"
+                                            src="../../assets/images/banner/Loading_icon.gif">
+                                    </a>
+                                </div>
+                               
+                            </div>
+                        </div>
